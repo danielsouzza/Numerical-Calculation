@@ -14,7 +14,9 @@ void decimalToBinary(int dec, char * bin){
 void invert(char * bin){
   char aux; int i,j;
   int size = strlen(bin);
-  for(i = 0,j = size-1; i < (size/2); i++ , j--){
+  char binInverted[size];
+  printf("%d\n",size);
+  for(i = 0,j = size-1; j > 0; i++ , j--){
     aux = bin[i];
     bin[i] = bin[j];
     bin[j] = aux;
