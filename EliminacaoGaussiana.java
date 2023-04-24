@@ -146,6 +146,7 @@ class LinearSystem {
             if(this.matriz[i][i] == 0){
                 this.changeRowMatriz(i);
             }
+            
             for (int j = i + 1; j < this.n; j++) {
                 double m = this.matriz[j][i] / this.matriz[i][i];
                 this.vetor[j] -= m * vetor[i];
@@ -155,6 +156,18 @@ class LinearSystem {
             }
         }
         this.displaySystem();
+    }
+
+    public void calculation() {
+        this.matriz_x[this.n - 1] = this.matriz[this.n - 1][this.n - 1];
+        for (int i = this.n - 1; i >= 0; i--) {
+            double soma = 0;
+            for (int j = i + 1; j < this.n; j++) {
+                soma += this.matriz[i][j] * this.matriz_x[j];
+            }
+            this.matriz_x[i] = (this.vetor[i] - soma) / this.matriz[i][i];
+        }
+        this.getMatrizX();
     }
 
     public void changeRowMatriz(int row){
@@ -172,18 +185,6 @@ class LinearSystem {
         this.vetor[row+1] = aux;
     }
 
-    public void calculation() {
-
-        this.matriz_x[this.n - 1] = this.matriz[this.n - 1][this.n - 1];
-        for (int i = this.n - 1; i >= 0; i--) {
-            double soma = 0;
-            for (int j = i + 1; j < this.n; j++) {
-                soma += this.matriz[i][j] * this.matriz_x[j];
-            }
-            this.matriz_x[i] = (this.vetor[i] - soma) / this.matriz[i][i];
-        }
-        this.getMatrizX();
-    }
 
     public void getMatrizX() {
         System.out.printf("\nx = [ ");
