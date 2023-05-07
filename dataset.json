@@ -1,0 +1,31 @@
+[{
+    "Q01":{
+        "func": ["exp(-x**2)-cos(x)", "x-(exp(-x**2)-cos(x))"],
+        "e": "10e-07",
+        "bisection":[1,1.5],
+        "newton":[1.5],
+        "secante":[1,1.5],
+        "fixpoint":[1.5]
+    }
+},		
+    {
+        "Q02":{
+            "func": ["x**3-x-1", "(x+1)**(1/3)"],
+            "e": "10e-05",
+            "bisection":[0,1.5],
+            "newton":[0],
+            "secante":[0,0.5],
+            "fixpoint":[0.5]
+        }
+    },
+    {
+        "Q03":{
+            "func": ["x**3-9*x+2", "x+0.1*(x**3-9*x+2)"],
+            "e": "10e-10",
+            "bisection":[0,1],
+            "newton":[0],
+            "secante":[-0.5,0],
+            "fixpoint":[0]
+        }
+    }
+]
